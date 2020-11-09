@@ -31,17 +31,17 @@ class Dominos extends ModulKu {
             $random = $this->site[array_rand($this->site)];
             $sitez = $random;
             $get_email   = $this->get_email($sitez);
-            $this->name  = $this->get_random_name();
+            $this->name  = array();
             $this->email = $get_email['current_email'];
             $this->password = $this->generateRandomString(8);
-            $this->notelp = "0896".rand(0000, 9999).rand(0000, 9999);
             $this->cls();
             echo "`======== `User Information` ========`".PHP_EOL;
-            echo "\t\~\ First Name  : ".$this->name['first_name'].PHP_EOL;
-            echo "\t\~\ Last Name   : ".$this->name['last_name'].PHP_EOL;
+            echo "\t\~\ First Name  : "; $this->name['first_name'] = trim(fgets(STDIN));
+            echo "\t\~\ Last Name   : "; $this->name['last_name'] = trim(fgets(STDIN));
+            print_r($this->name);
             echo "\t\~\ Email       : ".$this->email.PHP_EOL;
             echo "\t\~\ Password    : ".$this->password.PHP_EOL;
-            echo "\t\~\ No Telpon   : ".$this->notelp.PHP_EOL;
+            echo "\t\~\ No Telpon   : "; $this->notelp = trim(fgets(STDIN));
             $regis = $this->register_app($this->email, $this->password, $this->notelp);
             if($regis == true){
                 echo "# Try to activating account... ";
